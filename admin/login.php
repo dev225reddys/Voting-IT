@@ -1,12 +1,12 @@
 <?php
 session_start();
-include('db.php');?>
+include('../db.php');?>
 <?php
 
 if(isset($_POST)){
   $unm=$_POST['unm'];
   $psw=$_POST['psw'];
-  $q=$mysqli->query("select * from login where unm='$unm' and psw='$psw'") or die("Unable to connect");
+  $q=$mysqli->query("select * from admin where unm='$unm' and psw='$psw'") or die("Unable to connect");
   $qi=mysqli_fetch_array($q);
   $sec=$qi['sec'];
   $c=$q->num_rows;
@@ -14,7 +14,7 @@ if(isset($_POST)){
   if($c==1){
     $_SESSION['unm']=$unm;
     $_SESSION['sec']=$sec;
-    header("Location:vote.php");
+    header("Location:home.php");
 
   }
   else{

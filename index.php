@@ -15,7 +15,7 @@
       <a class="navbar-brand" href="#">Presidecny Elections</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="win.php">Winners</a></li>
+      <li><a href="admin/index.php">Admin</a></li>
 
     </ul>
   </div>

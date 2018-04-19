@@ -15,16 +15,30 @@ include '../db.php';
 
 ?>
 <div align="center">
-<h3> Hey Admin,Wassup?!</h3>
+<h3> Winners List Section Wise</h3>
 <table class="table table-hover">
-<tr>
-	<td>Show Particiapants</td>
-	<td><a href="showwin.php" class="btn btn-primary">Show</a></td>
-</tr>
-<tr>
-	<td>Upload Manifesto</td>
-	<td><a href="man.php" class="btn btn-primary">Upload</a></td>
-</tr>
+
+<?php 
+
+$q=$mysqli->query("select * from sec");
+while($qu=mysqli_fetch_array($q)){
+	$sec=$qu['sec'];
+	echo '<tr><th><h4>Section:'.$sec.'</h4></th></tr>
+	<tr><td>Name</td>
+	<td>Votes</td>';
+	echo '<tbody>';
+$w=$mysqli->query("select * from cr order by count desc");
+while($wi=mysqli_fetch_array($w)){
+	echo '
+	<td>'.$wi['name'].'</td>
+	<td>'.$wi['count'].'</td></tr>
+	';
+
+}
+
+}
+
+?>
 </table>
 </div>
 

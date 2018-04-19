@@ -8,7 +8,7 @@ if(isset($_POST)){
   $psw=$_POST['psw'];
   $q=$mysqli->query("select * from login where unm='$unm' and psw='$psw'") or die("Unable to connect");
   $qi=mysqli_fetch_array($q);
-  $sec=$qi['sec'];
+  $sec=$qi['secid'];
   $c=$q->num_rows;
   //echo $c;
   if($c==1){

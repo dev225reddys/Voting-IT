@@ -119,7 +119,7 @@ else{
 		</div>-->
 	
 <?php } ?>
-<footer> <a href="logout.php"><button class="btn btn-info">Logout</button></a>
+<footer> <a href="logout.php"><button class="btn btn-info">Logout</button></a></footer>
 	</body>
 
 </html>

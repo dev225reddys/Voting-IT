@@ -1,3 +1,7 @@
+<?php
+include 'db.php';
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +16,7 @@
   <script src="bootstrap/4.0.0/popper.js/popper.min.js"></script>
   <script src="bootstrap/4.0.0/bootstrap.min.js"></script>
 
-  <title>Login Page for Voter</title>
+  <title>Candidate Registration</title>
 </head>
 <body>
   <nav class="navbar navbar-default">
@@ -30,12 +34,12 @@
 <center>
   <div class="container">
       <div class="col-lg-5 col-offset-6 centered">
-
+<table class="table table-hover">
      <form class="form-signin" action="login.php" method="post">
        <br>
        <br>
 
-       <h4 class="form-signin-heading">Please sign in to VOTE</h4>
+       <h4 class="form-signin-heading">Candidate Registration</h4>
        <?php if(isset($_GET['w'])){
          if($_GET['w']=='wrong'){
            echo '<div class="alert alert-danger">
@@ -45,18 +49,27 @@
        }
        ?>
        <br>
-
-       <label for="username" class="sr-only">Username</label>
-       <input type="text" id="username" class="form-control" placeholder="Username" name="unm" required autofocus>
-       <label for="inputPassword" class="sr-only">Password</label>
-       <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="psw" required>
-       <div class="checkbox">
-         <label>
-           <input type="checkbox" value="remember-me"> Remember me
-         </label>
-       </div>
-       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+       <tr><td>Select Section</td><td>
+      <select name="sec" id="sec">
+        <option value="selected" disabled selected>Select Section</option>
+        <?php
+        $q=$mysqli->query("select * from sec");
+        while($qu=mysqli_fetch_array($q)){
+          echo '
+          <option value="'.$qu['sec'].'">'.$qu['sec'].'</option>
+          ';
+        }
+        ?>
+      </select></td></tr>
+      <tr><td>Candidate Name</td>
+       <td><input type="text" id="name" class="form-control" placeholder="Enter your Name" name="name" required autofocus>
+       </td></tr>
+       <tr><td>Enter CGPA</td><td>
+       <input type="text" id="cgpa" class="form-control" placeholder="Enter CGPA" name="cgpa" required></td></tr>
+<tr><td></td><td>       <button class="btn btn-lg btn-primary btn-block" type="submit">Submit
+</button></td></tr>
      </form>
+     </table>
 </div>
    </div> <!-- /container -->
 </center>

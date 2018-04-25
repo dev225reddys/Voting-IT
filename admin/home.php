@@ -26,7 +26,9 @@ include '../db.php';
 	<td><a href="man.php" class="btn btn-primary">Upload</a></td>
 </tr>
 </table>
+<footer> <a href="logout.php"><button class="btn btn-info">Logout</button></a></footer>
 </div>
+
 
 </body>
 </html>

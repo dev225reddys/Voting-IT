@@ -17,6 +17,15 @@ session_start();
   <script src="bootstrap/4.0.0/bootstrap.min.js"></script>
 
   <title>Candidate Registration</title>
+  <script type="text/javascript">
+    function chkCGPA(){
+      //window.alert("Test")
+      var cgpa=document.forms["cand"["cgpa"].value;
+      if(cgpa==6.5){
+        window.alert("Only Candidates with 6.5 or Above CGPA are Allowed");
+      }
+    }
+  </script>
 </head>
 <body>
   <nav class="navbar navbar-default">
@@ -35,7 +44,7 @@ session_start();
   <div class="container">
       <div class="col-lg-5 col-offset-6 centered">
 <table class="table table-hover">
-     <form class="form-signin" action="login.php" method="post">
+     <form name="cand">
        <br>
        <br>
 
@@ -65,7 +74,7 @@ session_start();
        <td><input type="text" id="name" class="form-control" placeholder="Enter your Name" name="name" required autofocus>
        </td></tr>
        <tr><td>Enter CGPA</td><td>
-       <input type="text" id="cgpa" class="form-control" placeholder="Enter CGPA" name="cgpa" required></td></tr>
+       <input type="text" id="cgpa" class="form-control" placeholder="Enter CGPA" name="cgpa" required></td><td><a onclick="chkCGPA();" class="btn btn-info">Check Eligibilty</a></td></tr>
 <tr><td></td><td>       <button class="btn btn-lg btn-primary btn-block" type="submit">Submit
 </button></td></tr>
      </form>
